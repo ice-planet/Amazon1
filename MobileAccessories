@@ -1,0 +1,24 @@
+package Amazon1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+public class MobileAccessories {
+
+	WebDriver driver;
+	 
+	public MobileAccessories(WebDriver driver) {
+		this.driver= driver;
+		PageFactory.initElements(driver, this);
+		
+	}
+	@FindBy(linkText = "Mobiles & Accessories")
+	WebElement mobAcc;
+	
+	public void visibleText() {
+		Assert.assertTrue(mobAcc.isDisplayed(), "Mobile & Accessories are not displayed");
+	}
+  }
