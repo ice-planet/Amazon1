@@ -1,0 +1,30 @@
+package MainFramework;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Amazon1.BeforeTest;
+import Amazon1.HamburgerPage;
+import Amazon1.HomePageAmazon;
+import Amazon1.MobileAccessories;
+
+public class NewTest extends BeforeTest {
+	
+	// declaration of page objects
+	public HomePageAmazon homeObj;
+	public HamburgerPage hamObj;
+	public MobileAccessories mobObj;
+	WebDriver driver;
+	
+  @Test
+  public void f() {
+	  homeObj= new HomePageAmazon(driver);
+	  homeObj.verifySignInButton();
+	 
+	  hamObj = new HamburgerPage(driver);
+	  hamObj.clickButton();
+	  
+	  mobObj = new MobileAccessories(driver);
+	  mobObj.visibleText();
+  }
+}
