@@ -1,0 +1,45 @@
+package MainFramework;
+
+import org.testng.annotations.Test;
+
+import Amazon1.HamburgerPage;
+import Amazon1.HomePageAmazon;
+import Amazon1.MobileAccessories;
+
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	WebDriver driver;
+	public HomePageAmazon homeObj;
+	public HamburgerPage hamObj;
+	public MobileAccessories mobObj;
+  @Test
+  public void f() {
+	  homeObj= new HomePageAmazon(driver);
+	  homeObj.verifySignInButton();
+	 
+	  hamObj = new HamburgerPage(driver);
+	  hamObj.clickButton();
+	  
+	  mobObj = new MobileAccessories(driver);
+	  mobObj.visibleText();
+	  
+  }
+  @BeforeTest
+  public void beforeTest() throws InterruptedException {
+  System.setProperty("webdriver.chromedriver.driver", "C:\\Users\\SRIMA SWAGATIKA\\Downloads\\chromedriver_win32\\chromedriver.exe");
+  driver= new ChromeDriver();
+  driver.get("https://www.amazon.in/");
+  driver.manage().window().maximize();
+  Thread.sleep(1000);
+  }
+
+  @AfterTest
+  public void afterTest() {
+	  driver.close();
+  }
+
+}
